@@ -4,8 +4,6 @@ Content repository for the **Moment of Honor CMS**, the content source for the "
 
 This repository is the source of truth for informational content. It stores posts and stories as JSON documents, their related media files, and the generated `feed.json` consumed by the CMS's serverless API.
 
-See [RFC 0001 — Moment of Honor CMS](../moment-of-honor-cms/README.md) for the full architecture.
-
 ## Repository structure
 
 ```text
