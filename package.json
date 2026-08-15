@@ -2,7 +2,7 @@
   "name": "moment-of-honor-content",
   "version": "1.0.0",
   "private": true,
-  "description": "Content repository for the Moment of Honor CMS",
+  "description": "Content repository for the Moment of Honor CMS.",
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate-content.mjs",
