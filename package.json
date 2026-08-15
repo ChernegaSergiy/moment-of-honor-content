@@ -1,0 +1,15 @@
+{
+  "name": "moment-of-honor-content",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Content repository for the Moment of Honor CMS",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-content.mjs",
+    "generate-feed": "node scripts/generate-feed.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}
