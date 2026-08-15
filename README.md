@@ -82,3 +82,7 @@ Two GitHub Actions workflows automate this repository:
 - **Git is the history.** Every content change is a commit; the repository does not maintain a separate changelog.
 - **Text and media are independent.** Content documents only reference media by path; they never embed binary data.
 - **The feed is derived, not authored.** `feed.json` is always generated from `content/`, never edited by hand.
+
+## License
+
+The content of this documentation is licensed under the CC0 1.0 Universal. See the [LICENSE](LICENSE) file for details.
