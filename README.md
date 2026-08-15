@@ -14,20 +14,20 @@ the full architecture.
 
 ```text
 moment-of-honor-content/
-├── content/
-│   ├── posts/       Post documents (*.json)
-│   └── stories/      Story documents (*.json)
-├── media/
-│   ├── posts/        Media referenced by posts
-│   └── stories/       Media referenced by stories
-├── schema/
-│   ├── post.schema.json
-│   ├── story.schema.json
-│   └── feed.schema.json
-├── scripts/
-│   ├── validate-content.mjs
-│   └── generate-feed.mjs
-└── feed.json          Generated feed, do not edit by hand
++-- content/
+|   +-- posts/                # Post documents (*.json)
+|   \-- stories/              # Story documents (*.json)
++-- media/
+|   +-- posts/                # Media referenced by posts
+|   \-- stories/              # Media referenced by stories
++-- schema/
+|   +-- post.schema.json
+|   +-- story.schema.json
+|   \-- feed.schema.json
++-- scripts/
+|   +-- validate-content.mjs
+|   \-- generate-feed.mjs
+\-- feed.json                 # Generated feed, do not edit by hand
 ```
 
 ## Content format
