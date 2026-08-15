@@ -1,5 +1,8 @@
 # Moment of Honor Content
 
+[![Validate content](https://github.com/ChernegaSergiy/moment-of-honor-content/actions/workflows/validate.yml/badge.svg)](https://github.com/ChernegaSergiy/moment-of-honor-content/actions/workflows/validate.yml)
+[![Generate feed](https://github.com/ChernegaSergiy/moment-of-honor-content/actions/workflows/generate-feed.yml/badge.svg)](https://github.com/ChernegaSergiy/moment-of-honor-content/actions/workflows/generate-feed.yml)
+
 Content repository for the **Moment of Honor CMS**, the content source for the "Хвилина мовчання" ("Minute of Silence") desktop application.
 
 This repository is the source of truth for informational content. It stores posts and stories as JSON documents, their related media files, and the generated `feed.json` consumed by the CMS's serverless API.
