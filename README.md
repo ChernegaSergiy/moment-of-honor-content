@@ -85,4 +85,4 @@ Two GitHub Actions workflows automate this repository:
 
 ## License
 
-The content of this documentation is licensed under the CC0 1.0 Universal. See the [LICENSE](LICENSE) file for details.
+All content and data in this repository is released into the public domain under CC0 1.0 Universal. See the [LICENSE](LICENSE) file for details.
