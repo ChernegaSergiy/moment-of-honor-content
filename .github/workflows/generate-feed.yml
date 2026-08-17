@@ -36,15 +36,22 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add feed.json
-          if git diff --staged --quiet; then
+          
+          # Compare old and new feed, ignoring the generatedAt timestamp
+          OLD_HASH=$(git show HEAD:feed.json 2>/dev/null | jq -c 'del(.generatedAt)' | sha256sum || echo "old")
+          NEW_HASH=$(jq -c 'del(.generatedAt)' feed.json | sha256sum || echo "new")
+          
+          if [ "$OLD_HASH" = "$NEW_HASH" ]; then
+            echo "Content unchanged. Skipping commit."
+            git checkout feed.json
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            git commit -m "chore: Regenerate feed.json"
-            git push
           fi
+
+          git add feed.json
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          git commit -m "chore: Regenerate feed.json"
+          git push
 
       - name: Prepare static assets
         if: steps.commit.outputs.changed == 'true'

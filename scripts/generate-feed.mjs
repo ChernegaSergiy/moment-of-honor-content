@@ -25,23 +25,6 @@ const stories = readDocuments(join(ROOT, 'content/stories'))
   .filter((story) => new Date(story.expiresAt) > now)
   .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 
-let existingFeed = null;
-try {
-  existingFeed = JSON.parse(readFileSync(join(ROOT, 'feed.json'), 'utf8'));
-} catch (e) {
-  // Ignored, file might not exist
-}
-
-const contentChanged =
-  !existingFeed ||
-  JSON.stringify(existingFeed.posts) !== JSON.stringify(posts) ||
-  JSON.stringify(existingFeed.stories) !== JSON.stringify(stories);
-
-if (!contentChanged) {
-  console.log('Content is unchanged. Skipping feed.json generation.');
-  process.exit(0);
-}
-
 const feed = {
   version: FEED_VERSION,
   generatedAt: now.toISOString(),
