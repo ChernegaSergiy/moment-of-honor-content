@@ -4,15 +4,11 @@
   "title": "Feed",
   "type": "object",
   "additionalProperties": false,
-  "required": ["version", "generatedAt", "posts", "stories"],
+  "required": ["version", "posts", "stories"],
   "properties": {
     "version": {
       "type": "integer",
       "minimum": 1
-    },
-    "generatedAt": {
-      "type": "string",
-      "format": "date-time"
     },
     "posts": {
       "type": "array",
