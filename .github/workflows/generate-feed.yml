@@ -32,21 +32,29 @@ jobs:
       - run: npm run generate-feed
 
       - name: Commit updated feed.json
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add feed.json
-          git diff --staged --quiet && exit 0
-          git commit -m "chore: Regenerate feed.json"
-          git push
+          if git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git commit -m "chore: Regenerate feed.json"
+            git push
+          fi
 
       - name: Prepare static assets
+        if: steps.commit.outputs.changed == 'true'
         run: |
           mkdir -p public
           cp feed.json public/
           cp -r media public/ || true
 
       - name: Deploy to Cloudflare Pages
+        if: steps.commit.outputs.changed == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
