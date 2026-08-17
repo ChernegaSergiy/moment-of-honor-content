@@ -27,7 +27,6 @@ const stories = readDocuments(join(ROOT, 'content/stories'))
 
 const feed = {
   version: FEED_VERSION,
-  generatedAt: now.toISOString(),
   posts,
   stories,
 };
