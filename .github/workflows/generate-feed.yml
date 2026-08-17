@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'content/**'
+      - 'media/**'
+      - 'feed.json'
   schedule:
     # Re-generate periodically so expired stories drop out of feed.json
     # even when no content changes.
@@ -48,14 +50,14 @@ jobs:
           git push
 
       - name: Prepare static assets
-        if: steps.commit.outputs.changed == 'true'
+        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
         run: |
           mkdir -p public
           cp feed.json public/
           cp -r media public/ || true
 
       - name: Deploy to Cloudflare Pages
-        if: steps.commit.outputs.changed == 'true'
+        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
