@@ -86,6 +86,20 @@ Two GitHub Actions workflows automate this repository:
 - **Text and media are independent.** Content documents only reference media by path; they never embed binary data.
 - **The feed is derived, not authored.** `feed.json` is always generated from `content/`, never edited by hand.
 
+## Contributing
+
+To contribute new content, please follow these steps:
+
+1. Fork this repository
+2. Create a new branch (`git checkout -b content/your-new-post`)
+3. Create a new `.json` document inside `content/posts/` or `content/stories/`
+4. Place any referenced media files inside `media/posts/` or `media/stories/`
+5. Run `npm run validate` to ensure your document matches the required schema
+6. Commit and push your changes (do not commit `feed.json`, it is generated automatically)
+7. Open a Pull Request
+
+Your contributions are greatly appreciated!
+
 ## License
 
 All content and data in this repository is released into the public domain under CC0 1.0 Universal. See the [LICENSE](LICENSE) file for details.
