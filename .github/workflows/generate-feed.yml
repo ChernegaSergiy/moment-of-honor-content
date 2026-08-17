@@ -39,3 +39,16 @@ jobs:
           git diff --staged --quiet && exit 0
           git commit -m "chore: Regenerate feed.json"
           git push
+
+      - name: Prepare static assets
+        run: |
+          mkdir -p public
+          cp feed.json public/
+          cp -r media public/ || true
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name moment-of-honor-feed
