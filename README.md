@@ -88,7 +88,9 @@ Two GitHub Actions workflows automate this repository:
 
 ## Contributing
 
-To contribute new content, please follow these steps:
+The easiest way to contribute content is by using the **Moment of Honor Dashboard** (the CMS UI), which provides a user-friendly interface for creating and editing posts, uploading media, and automatically handles the Git workflow for you.
+
+If you prefer to contribute manually via Git (without the dashboard), please follow these steps:
 
 1. Fork this repository
 2. Create a new branch (`git checkout -b content/your-new-post`)
