@@ -55,6 +55,7 @@ jobs:
           mkdir -p public
           cp feed.json public/
           cp -r media public/ || true
+          cp -r avatars public/ || true
 
       - name: Deploy to Cloudflare Pages
         if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
