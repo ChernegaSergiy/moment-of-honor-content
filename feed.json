@@ -33,5 +33,16 @@
       "updatedAt": "2026-09-15T15:17:13.737Z"
     }
   ],
-  "stories": []
+  "stories": [
+    {
+      "id": "2026-10-05-12",
+      "type": "story",
+      "media": [
+        "media/stories/demo-story.jpg"
+      ],
+      "author": "moment_of_honor",
+      "publishedAt": "2026-10-05T09:00:00Z",
+      "expiresAt": "2026-12-31T23:59:59Z"
+    }
+  ]
 }
